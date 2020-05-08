@@ -2,6 +2,16 @@
 
 scool project wich focus to help the pepoel who have the chronic diseaseb to find a medical Center.
 
+### contributeur
+
+Victor Balducci 
+
+Dreidemy Romain
+
+Emma Cassagnettes 
+
+Cheik Kone 
+
 ### run projet
 
 install dependences
@@ -16,43 +26,14 @@ build projet
 
 `npm run build`
 
-### contributeur
+### monst important dependences
 
-Victor Balducci 
+### handler of root
 
-Dreidemy Romain
+- [react-router](https://reacttraining.com/react-router/web/guides/quick-start)
 
-Emma Cassagnettes 
+### style css
 
-Cheik Kone 
+- [tailwind]( https://tailwindcss.com/docs )
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
-# I_need_v2
