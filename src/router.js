@@ -1,11 +1,14 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import SingIn from "./views/singIn";
+import { Switch, Route } from "react-router-dom";
 
 const Routes = () => {
   return (
-    <div>
-      <Router></Router>
-    </div>
+    <Switch>
+      <Route path="/">
+        <SingIn />
+      </Route>
+    </Switch>
   );
 };
 
