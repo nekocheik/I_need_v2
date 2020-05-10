@@ -240,6 +240,10 @@ module.exports = {
       default: "1",
     },
     fontFamily: {
+      display: ["Roboto"],
+      body: ["Roboto"],
+      Roboto: "Roboto",
+      Assistant: "Assistant",
       sans: [
         "system-ui",
         "-apple-system",
