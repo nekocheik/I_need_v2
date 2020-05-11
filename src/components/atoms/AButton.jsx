@@ -8,11 +8,8 @@ const AButton = ({
   full,
   empty = true,
 }) => {
-  const defaultStyle =
-    `focus:outline-none focus:shadow-outline border-${color}-color rounded-lg text-${color}-color px-12 py-1 border-3` +
-    " " +
-    classCss;
-  const [className] = useStyleGuild({
+  const defaultStyle = `focus:outline-none focus:shadow-outline border-${color}-color rounded-lg text-${color}-color px-12 py-1 border-3 ${classCss}`;
+  const [classTw, toogle] = useStyleGuild({
     defaultStyle: defaultStyle,
     empty: {
       state: empty,
@@ -22,10 +19,22 @@ const AButton = ({
       state: full,
       style: `bg-${color} text-${color}`,
     },
+    active: "naruto",
   });
+  setInterval(() => {
+    toogle("toogle", "active");
+  }, 3000);
 
-  console.log(className);
-  return <button className={className}>{children}</button>;
+  return (
+    <button
+      className={classTw}
+      onClick={() => {
+        toogle();
+      }}
+    >
+      {children}
+    </button>
+  );
 };
 
 export default AButton;

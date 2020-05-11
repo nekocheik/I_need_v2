@@ -1,13 +1,44 @@
-import react from "react";
-import useTailwindStyle from "./tailwindStyle";
+import toCss from "../mixin/taillwindConver.js";
 
-export default (objectStyle = {}) => {
-  const defaultValue = objectStyle.defaultStyle ? objectStyle.defaultStyle : "";
-  delete objectStyle.defaultStyle;
-  objectStyle = objectStyle;
-  console.log(Object.entries(objectStyle));
-  const styleType = Object.entries(objectStyle).find(
-    (styleType) => styleType[0].state === true || styleType[1].state === true
-  )[1].style;
-  return [useTailwindStyle(defaultValue, styleType)];
-};
+export default function (objectStyle = {}) {
+  const _val = objectStyle;
+  const defaultValue = _val.defaultStyle ? _val.defaultStyle : "";
+  delete _val.defaultStyle;
+
+  function classTw() {
+    let dyn = Object.entries(_val)
+      .map((v) => v[1])
+      .reduce((a, c) => {
+        console.log(a, c, "jjjj");
+        return !a.length && a.length != 0
+          ? [a.state ? a.style : "", c.state ? c.style : ""]
+          : c.state
+          ? a.push(c.style)
+          : a;
+      });
+    console.log(dyn, "ddk");
+    return toCss(defaultValue);
+  }
+  let test = classTw();
+
+  function change(action, styleName) {
+    _val[styleName] = !_val[styleName] ? {} : _val[styleName];
+    let classList = objectStyle[styleName]["style"] || objectStyle[styleName];
+
+    switch (action.toLowerCase()) {
+      case "toogle":
+        _val[styleName] =
+          _val.styleName && _val[styleName].state === true
+            ? { state: false, style: classList }
+            : {
+                state: true,
+                style: classList,
+              };
+        break;
+    }
+    test = classTw();
+    console.log("ici le test", test);
+  }
+
+  return [test, change];
+}
