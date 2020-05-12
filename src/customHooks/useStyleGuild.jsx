@@ -1,44 +1,38 @@
 import toCss from "../mixin/taillwindConver.js";
+import { useState, useEffect } from "react";
 
 export default function (objectStyle = {}) {
-  const _val = objectStyle;
-  const defaultValue = _val.defaultStyle ? _val.defaultStyle : "";
-  delete _val.defaultStyle;
-
-  function classTw() {
-    let dyn = Object.entries(_val)
-      .map((v) => v[1])
-      .reduce((a, c) => {
-        console.log(a, c, "jjjj");
-        return !a.length && a.length != 0
-          ? [a.state ? a.style : "", c.state ? c.style : ""]
-          : c.state
-          ? a.push(c.style)
+  let [val, setVal] = useState(
+    Object.entries(objectStyle).reduce((a, [currentKey, currentVal]) => {
+      let value =
+        a && a[1]
+          ? {
+              [a[0]]: {
+                style: a[1].style || a[1],
+                state: a[1].state || a[1].state === undefined ? true : false,
+              },
+            }
           : a;
-      });
-    console.log(dyn, "ddk");
-    return toCss(defaultValue);
-  }
-  let test = classTw();
+      value[currentKey] = {
+        state:
+          currentVal.state || currentVal.state === undefined ? true : false,
+        style: currentVal.style || currentVal,
+      };
+      return value;
+    })
+  );
 
-  function change(action, styleName) {
-    _val[styleName] = !_val[styleName] ? {} : _val[styleName];
-    let classList = objectStyle[styleName]["style"] || objectStyle[styleName];
+  let [_val, _setVal] = useState(null);
 
-    switch (action.toLowerCase()) {
-      case "toogle":
-        _val[styleName] =
-          _val.styleName && _val[styleName].state === true
-            ? { state: false, style: classList }
-            : {
-                state: true,
-                style: classList,
-              };
-        break;
-    }
-    test = classTw();
-    console.log("ici le test", test);
-  }
+  useEffect(() => {
+    const valFormatCss = toCss(
+      ...Object.entries(val)
+        .map(([key, val]) => (val.state ? val.style : false))
+        .filter((val) => val)
+    );
+    _setVal(valFormatCss);
+  }, [val]);
 
-  return [test, change];
+  return [_val];
 }
+

@@ -16,14 +16,13 @@ const AButton = ({
       style: "bg-transparent",
     },
     full: {
-      state: full,
-      style: `bg-${color} text-${color}`,
+      state: full || null,
+      style: `bg-${color} ddfas text-${color}`,
     },
     active: "naruto",
   });
-  setInterval(() => {
-    toogle("toogle", "active");
-  }, 3000);
+
+  console.log(classTw);
 
   return (
     <button
