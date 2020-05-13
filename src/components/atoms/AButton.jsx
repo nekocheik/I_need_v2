@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import useStyleGuild from "../../customHooks/useStyleGuild";
 
 const AButton = ({
@@ -9,10 +9,10 @@ const AButton = ({
   empty = true,
 }) => {
   const defaultStyle = `focus:outline-none focus:shadow-outline border-${color}-color rounded-lg text-${color}-color px-12 py-1 border-3 ${classCss}`;
-  const [classTw, toogle] = useStyleGuild({
+  const [classTw, styleGuild] = useStyleGuild({
     defaultStyle: defaultStyle,
     empty: {
-      state: empty,
+      state: false,
       style: "bg-transparent",
     },
     full: {
@@ -22,13 +22,15 @@ const AButton = ({
     active: "naruto",
   });
 
-  console.log(classTw);
+  useEffect(() => {
+    console.log(classTw);
+  }, classTw);
 
   return (
     <button
       className={classTw}
       onClick={() => {
-        toogle();
+        styleGuild("addState", "empty");
       }}
     >
       {children}
