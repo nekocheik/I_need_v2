@@ -3,7 +3,7 @@ import useStyleGuild from "../../customHooks/useStyleGuild";
 
 const AButton = ({
   children,
-  classCss,
+  classCss = "",
   color = "primary",
   full,
   empty = true,
@@ -17,25 +17,18 @@ const AButton = ({
     },
     full: {
       state: full || null,
-      style: `bg-${color} ddfas text-${color}`,
+      style: `bg-${color}-color text-white`,
     },
-    active: "naruto",
   });
 
   useEffect(() => {
-    console.log(classTw);
-  }, classTw);
+    if (full) {
+      styleGuild.add("full");
+      styleGuild.remove("empty");
+    }
+  }, [full]);
 
-  return (
-    <button
-      className={classTw}
-      onClick={() => {
-        styleGuild("addState", "empty");
-      }}
-    >
-      {children}
-    </button>
-  );
+  return <button className={classTw}>{children}</button>;
 };
 
 export default AButton;

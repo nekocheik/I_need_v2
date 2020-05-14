@@ -11,7 +11,7 @@ const catchPhrase = () => {
         backgroundPositionX: "-50px",
         backgroundPositionY: "center",
       }}
-      className="text-4xl font-Assistant font-semibold text-left p-6 py-32 uppercase m-auto h-screen items-stretch w-1/2 bg-tertiaire-color"
+      className="hidden lg:block flex-shrink-0 text-4xl font-Assistant font-semibold text-left p-6 py-32 uppercase m-auto h-screen items-stretch w-1/2 bg-tertiaire-color"
     >
       <h1 className="text-secondary-color">
         Travel easily with chronic illness{" "}
