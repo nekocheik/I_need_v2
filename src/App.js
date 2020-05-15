@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import { Switch, Route } from "react-router-dom";
-import SingIn from "./views/SingIN";
+import Log from "./views/Log";
 import NavBarre from "./components/layouts/NavBarre";
 import PageWrap from "./components/layouts/PageWrap";
 
@@ -12,8 +12,8 @@ function App() {
         <NavBarre />
         <PageWrap>
           <Switch>
-            <Route path="/">
-              <SingIn />
+            <Route path="/log/:type">
+              <Log />
             </Route>
           </Switch>
         </PageWrap>

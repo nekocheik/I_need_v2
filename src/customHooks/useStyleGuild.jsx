@@ -22,7 +22,13 @@ export default function (fallbackValue) {
     })
   );
 
-  const [_val, _setVal] = useState();
+  const [_val, _setVal] = useState(
+    toCss(
+      ...Object.entries(_valDefault)
+        .map(([key, val]) => (val.state ? val.style : false))
+        .filter((val) => val)
+    )
+  );
 
   useEffect(() => {
     _setVal(
@@ -32,7 +38,6 @@ export default function (fallbackValue) {
           .filter((val) => val)
       )
     );
-    console.log(_valDefault);
   }, [_valDefault]);
 
   return [
