@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import { Switch, Route } from "react-router-dom";
-import Log from "./views/Log";
+import Log from "./views/Log.jsx";
 import NavBarre from "./components/layouts/NavBarre";
 import PageWrap from "./components/layouts/PageWrap";
 

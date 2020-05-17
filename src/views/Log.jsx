@@ -1,49 +1,25 @@
 import React from "react";
 import PageWrap from "../components/layouts/PageWrap";
 import CatchPhrase from "../components/layouts/CatchPhrase";
-import { useForm } from "react-hook-form";
-import Input from "../components/molecules/MInput";
 import AButton from "../components/atoms/AButton";
-import { path, url, Route, Switch, useRouteMatch } from "react-router-dom";
+import useApi from "../mixin/ApiRequest";
+import SingIn from "../components/layouts/SingIn";
+import SingUp from "../components/layouts/SingUp";
 
-const SingIn = () => {
-  let { path, url } = useRouteMatch();
-  const { register, handleSubmit, errors } = useForm();
-  const onSubmit = (data) => {
-    console.log(data);
-  };
+import { useParams, useHistory } from "react-router-dom";
 
-  const SingUP = () => {
-    return (
-      <form className="w-full p-2" onSubmit={handleSubmit(onSubmit)}>
-        <Input
-          name="Email"
-          classCss="bg-quaternary-color"
-          ref={register({ required: true })}
-        >
-          {errors.lastname && "Last name is required."}
-        </Input>
-        <Input
-          classCss="bg-quaternary-color"
-          name="Password"
-          ref={register({ required: true })}
-        >
-          {errors.lastname && "Last name is required."}
-        </Input>
-        <Input
-          classCss="bg-quaternary-color"
-          name="Confirm Password"
-          ref={register({ required: true })}
-        >
-          {errors.lastname && "Last name is required."}
-        </Input>
-        <span className="block mt-10">
-          <AButton classCss="w-full py-2" className="my-8" full={true}>
-            Sign up
-          </AButton>
-        </span>
-      </form>
-    );
+const Log = () => {
+  const { type } = useParams();
+  const history = useHistory();
+
+  const BlockForm = () => {
+    if (type === "singin") {
+      return <SingIn />;
+    } else if (type === "singup") {
+      return <SingUp />;
+    } else {
+      history.push("/");
+    }
   };
 
   return (
@@ -52,13 +28,11 @@ const SingIn = () => {
         <p className="text-3xl font-bold font-Assistant pt-24">
           OPEN AN ACCOUNT
         </p>
-        <Switch>
-          <SingUP />
-        </Switch>
+        <BlockForm />
       </div>
       <CatchPhrase />
     </div>
   );
 };
 
-export default SingIn;
+export default Log;
