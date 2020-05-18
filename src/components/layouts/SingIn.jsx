@@ -2,7 +2,7 @@ import React from "react";
 import MInput from "../molecules/MInput";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
-import AButton from "../atoms/AButton";
+import { AButton } from "../atoms/atoms";
 
 const SingIn = () => {
   const { register, handleSubmit, errors } = useForm();
