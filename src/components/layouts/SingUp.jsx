@@ -1,50 +1,55 @@
 import React from "react";
-import Input from "../molecules/MInput";
+import AInput from "../molecules/MInput";
 import AButton from "../atoms/AButton";
+import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
-const SingUP = () => {
+const SingUP = ({ props }) => {
   const { register, handleSubmit, errors } = useForm();
 
-  const onSubmit = (data, c) => {
-    console.log(data, c, this);
+  const onSubmit = (data) => {
+    console.log(data);
   };
 
   return (
-    <form
-      className="w-full p-2"
-      onSubmit={(e) => {
-        handleSubmit((a) => onSubmit(e, a));
-      }}
-    >
-      <Input
-        name="Email"
-        classCss="bg-quaternary-color"
-        ref={register({ required: true })}
-      >
-        {errors.lastname && "Last name is required."}
-      </Input>
-      <input type="text" name="mail" />
-      <Input
-        classCss="bg-quaternary-color"
-        name="Password"
-        ref={register({ required: true })}
-      >
-        dsfadsafdsafdasfasf
-      </Input>
-      <Input
-        classCss="bg-quaternary-color"
-        name="Confirm Password"
-        ref={register({ required: true })}
-      >
-        {errors.lastname && "Last name is required."}
-      </Input>
-      <span className="block mt-10">
-        <AButton classCss="w-full py-2" className="my-8" full={true}>
-          Sign up
-        </AButton>
-      </span>
-    </form>
+    <>
+      <form className="w-full p-2" onSubmit={handleSubmit(onSubmit)}>
+        <AInput
+          name="Email"
+          styleName="bg-quaternary-color"
+          ref={register({ required: true })}
+        >
+          {errors.lastname && "Last name is required."}
+        </AInput>
+        <AInput
+          styleName="bg-quaternary-color"
+          name="Password"
+          ref={register({ required: true })}
+        >
+          {errors.lastname && "Last name is required."}
+        </AInput>
+        <AInput
+          styleName="bg-quaternary-color"
+          name="Confirm Password"
+          ref={register({ required: true })}
+        >
+          {errors.lastname && "Last name is required."}
+        </AInput>
+        <span className="block mt-10">
+          <AButton styleName="w-full py-2" className="my-8" full={true}>
+            Sign up
+          </AButton>
+        </span>
+      </form>
+      <p className="pt-3">
+        Already have an account ?{" "}
+        <Link to="/Log/singin">
+          <span className="text-secondary-color font-semibold cursor-pointer">
+            Log in
+          </span>
+        </Link>
+      </p>
+    </>
   );
 };
 

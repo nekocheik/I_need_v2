@@ -3,12 +3,12 @@ import useStyleGuild from "../../customHooks/useStyleGuild";
 
 const AButton = ({
   children,
-  classCss = "",
+  styleName = "",
   color = "primary",
   full,
   empty = true,
 }) => {
-  const defaultStyle = `focus:outline-none focus:shadow-outline border-${color}-color rounded-lg text-${color}-color px-12 py-1 border-3 ${classCss}`;
+  const defaultStyle = `focus:outline-none focus:shadow-outline border-${color}-color rounded-lg text-${color}-color px-12 py-1 border-3 ${styleName}`;
   const [classTw, styleGuild] = useStyleGuild({
     defaultStyle: defaultStyle,
     empty: {

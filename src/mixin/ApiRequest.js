@@ -1,6 +1,7 @@
 import axios from "axios";
+require("dotenv").config();
 const PROTOCOLE = "http";
-const IP = process.env.BACK_END_API_IP;
+const IP = process.env.REACT_APP_API_ENDPOINT;
 
 class ApiRequest {
   constructor() {

@@ -292,11 +292,15 @@ module.exports = {
       extrabold: "800",
       black: "900",
     },
+
     height: (theme) => ({
       auto: "auto",
       ...theme("spacing"),
       full: "100%",
       screen: "100vh",
+      90: "90vh",
+      80: "80vh",
+      70: "70vh",
     }),
     inset: {
       "0": "0",

@@ -1,12 +1,13 @@
 import React from "react";
-import PageWrap from "../components/layouts/PageWrap";
-import CatchPhrase from "../components/layouts/CatchPhrase";
-import AButton from "../components/atoms/AButton";
+import { AButton } from "../components/atoms/atoms";
 import useApi from "../mixin/ApiRequest";
-import SingIn from "../components/layouts/SingIn";
-import SingUp from "../components/layouts/SingUp";
-
 import { useParams, useHistory } from "react-router-dom";
+import {
+  PageWrap,
+  CatchPhrase,
+  SingIn,
+  SingUp,
+} from "../components/layouts/layouts";
 
 const Log = () => {
   const { type } = useParams();
@@ -23,8 +24,8 @@ const Log = () => {
   };
 
   return (
-    <div className="flex flex-row w-full min-h-screen">
-      <div id="form_singUp" className="relative w-full px-24">
+    <div className="flex flex-row w-full h-90">
+      <div id="form_singUp" className="relative w-full md:px-10 lg:px-16">
         <p className="text-3xl font-bold font-Assistant pt-24">
           OPEN AN ACCOUNT
         </p>
