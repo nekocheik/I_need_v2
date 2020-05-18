@@ -1,5 +1,5 @@
 import React from "react";
-import AInput from "../molecules/MInput";
+import MInput from "../molecules/MInput";
 import AButton from "../atoms/AButton";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
@@ -14,27 +14,27 @@ const SingUP = ({ props }) => {
   return (
     <>
       <form className="w-full p-2" onSubmit={handleSubmit(onSubmit)}>
-        <AInput
+        <MInput
           name="Email"
           styleName="bg-quaternary-color"
           ref={register({ required: true })}
         >
           {errors.lastname && "Last name is required."}
-        </AInput>
-        <AInput
+        </MInput>
+        <MInput
           styleName="bg-quaternary-color"
           name="Password"
           ref={register({ required: true })}
         >
           {errors.lastname && "Last name is required."}
-        </AInput>
-        <AInput
+        </MInput>
+        <MInput
           styleName="bg-quaternary-color"
           name="Confirm Password"
           ref={register({ required: true })}
         >
           {errors.lastname && "Last name is required."}
-        </AInput>
+        </MInput>
         <span className="block mt-10">
           <AButton styleName="w-full py-2" className="my-8" full={true}>
             Sign up

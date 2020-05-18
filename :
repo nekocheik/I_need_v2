@@ -1,10 +1,10 @@
 import React from "react";
 import useStyleGuild from "../../customHooks/useStyleGuild";
 import toCss from "../../mixin/taillwindConver.js";
-import { AErrorMEssage } from "../atoms/atoms.jsx";
 
-const MInput = React.forwardRef(({ name, children, styleName = "" }, ref) => {
+const AInput = React.forwardRef(({ name, children, styleName = "" }, ref) => {
   const messages = children;
+  console.log(messages);
 
   return (
     <div className="flex flex-col justify-start w-full mt-6">
@@ -17,9 +17,9 @@ const MInput = React.forwardRef(({ name, children, styleName = "" }, ref) => {
         name={name}
         ref={ref}
       />
-      <AErrorMEssage>{messages ? messages.props.children : null}</AErrorMEssage>
+      <div>{messages ? messages.props.children : null}</div>
     </div>
   );
 });
 
-export default MInput;
+export default AInput;
