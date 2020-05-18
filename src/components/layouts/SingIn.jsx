@@ -15,10 +15,11 @@ const SingIn = () => {
     <>
       <form className="w-full p-2" onSubmit={handleSubmit(onSubmit)}>
         <MInput
-          name="Email"
+          name="email"
           styleName="bg-quaternary-color"
           ref={register({ required: true })}
         >
+          <slot name="label">dffsadfj</slot>
           <slot name="messages">{errors.Email && "Field email required."}</slot>
         </MInput>
         <MInput
@@ -26,6 +27,7 @@ const SingIn = () => {
           name="Confirm Password"
           ref={register({ required: true })}
         >
+          <slot name="label">Field email required.</slot>
           <slot name="messages">{errors.Email && "Field email required."}</slot>
         </MInput>
         <span className="block mt-10">

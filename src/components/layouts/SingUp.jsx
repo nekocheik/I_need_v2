@@ -23,6 +23,13 @@ const SingUP = ({ props }) => {
         </MInput>
         <MInput
           styleName="bg-quaternary-color"
+          name="Password"
+          ref={register({ required: true })}
+        >
+          <slot name="messages">{errors.Email && "Field email required."}</slot>
+        </MInput>
+        <MInput
+          styleName="bg-quaternary-color"
           name="Confirm Password"
           ref={register({ required: true })}
         >
@@ -35,8 +42,8 @@ const SingUP = ({ props }) => {
         </span>
       </form>
       <p className="pt-3">
-        No account yet? Sign up{" "}
-        <Link to="/Log/singup">
+        Already have an account ?{" "}
+        <Link to="/Log/singin">
           <span className="text-secondary-color font-semibold cursor-pointer">
             Log in
           </span>
